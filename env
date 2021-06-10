@@ -1,0 +1,551 @@
+#
+# ALLEGRO GLOBAL Environment file
+#
+
+# The following variables are set by the software if not preset by user:
+#     CDS_SITE, ALLEGRO_SITE, TELENV, ALLEGRO_INSTALL_DIR, 
+#     ALLEGRO_INSTALL_TOOLS, ALLEGRO_INSTALL_ROOT, ALLEGRO_TYPE,
+#     __UNIX (if UNIX), _PROGRAM, HOME
+#
+# You may set the Operating System variable:
+#	ALLEGRO_PCBENV <alternative directory>
+# to overwrite the default of the user's pcbenv directory. This variable
+# must be set at the OS level and has no effect if set in an Allegro env file.
+# The directory given must exist. If no directory is found the system will
+# fallback to its default location.
+#
+# The following variables are preset at startup, direct settings in env
+# files will be overridden
+#	LOCALENV:  seeded based upon <HOME>/pcbenv (or if set ALLEGRO_PCBENV)
+#	LOCALPATH: seeded based upon . LOCALENV, ALLEGRO_SITE, GLOBALPATH
+# Variable names are case insensitive
+
+#--------------------------------------------------------------------
+# System Variables
+set GLOBAL = $ALLEGRO_INSTALL_DIR/text
+
+# change from LIBPATH because it conflicts with IBM's shared library
+# environment variable
+set ALIBPATH = $ALLEGRO_INSTALL_DIR/pcb_lib
+
+set COMPLIBPATH = $ALLEGRO_INSTALL_DIR/allegrolib
+
+set GLOBALPATH = . $GLOBAL
+
+# Allegro Data Services Variable
+set ADSPATH = $GLOBALPATH
+
+# Present for compatiblity with older versions of Allegro.
+ifnvar ALLEGRO_SITE "set ALLEGRO_SITE ."
+ifnvar CDSPLAT "set CDSPLAT "
+ifnvar ALLEGRO_INSTALL_DLL "set ALLEGRO_INSTALL_DLL "
+
+#--------------------------------------------------------------------
+# Configuration variables (Don't change)
+set BMPPATH = . $ALLEGRO_SITE/icons $GLOBAL/icons $ALLEGRO_INSTALL_ROOT/share/fsp/legends $ALLEGRO_INSTALL_ROOT/tools/fsp/legends
+set FORMPATH = . $ALLEGRO_SITE/forms $GLOBAL/forms D:/allegro_env/skill/form D:/allegro_env/skill
+set MENUPATH = . $ALLEGRO_SITE/menus $GLOBAL/cuimenus D:/allegro_env/menus
+
+set MATERIALPATH = . $LOCALENV $ALLEGRO_SITE $GLOBAL $GLOBAL/materials
+set CAPATH = . $LOCALENV $ALLEGRO_SITE $ALLEGRO_INSTALL_DIR/channelanalysis
+set AMIMODELPATH = . $LOCALENV $ALLEGRO_SITE/ami/$CDSPLAT $ALLEGRO_INSTALL_DIR/channelanalysis/ami/toolkit/dll/$CDSPLAT
+
+#Configuration paths
+set PRFEDITPATH = . $LOCALENV/configure/prfedit $ALLEGRO_SITE/configure/prfedit $ALLEGRO_INSTALL_DIR/configure/prfedit
+set BATCHHELPPATH = . $ALLEGRO_INSTALL_DIR/batchhelp
+set SPROUTEPATH = $ALLEGRO_INSTALL_DIR/configure/sproute
+
+set HELPPATH = . $ALLEGRO_INSTALL_DIR/help $GLOBAL/help
+set PDFPATH = . $ALLEGRO_INSTALL_DIR/help/pdf
+
+# Graphics demo env
+set IMAGEPATH = . $ALLEGRO_INSTALL_DIR/examples/image
+
+# Allegro Plugin search path
+set AXLPLUGINPATH = . $LOCALENV/$CDSPLAT $ALLEGRO_SITE/$CDSPLAT $ALLEGRO_INSTALL_DLL
+
+# Library path for Interfaces
+set INTERFACEPATH = $ALLEGRO_INSTALL_ROOT/share/library/interface
+        
+#--------------------------------------------------------------------
+# Drawing font
+set VECTORFONTPATH = . $GLOBAL
+set ANSIFONT = ansifont
+set KANJIFONTPATH = . $GLOBAL/fonts/kanji
+set KANJIFONT1 = kanjifont1
+set KANJIFONT2 = kanjifont2
+
+#--------------------------------------------------------------------
+# Display Variables
+
+set display_backingstore  on
+
+# disable repair under ratsnests 
+set display_shapefill_analysis 1
+
+# disable HTML datatips by default
+set disable_html_datatip_style
+
+# enable html as default for long message windows
+set allegro_html
+
+# enable ignoring dynamic shapes in etch edit
+set etchedit_ignore_dynamic_shapes
+
+#--------------------------------------------------------------------
+#--------------------------------------------------------------------
+set compalib = $ALIBPATH/symbols $COMPLIBPATH/symbols
+set topfilelib = $ALIBPATH/templates $COMPLIBPATH/templates
+set signal_install_dir = $ALLEGRO_INSTALL_DIR/signal
+set signal_optlib_dir = $signal_install_dir/optlib
+
+set MODULEPATH = . $ALLEGRO_SITE/modules
+set TILEPATH = . $ALLEGRO_SITE/modules
+set WBPATH = . $ALLEGRO_SITE/wbtiers
+#set PADPATH = . symbols .. ../symbols $ALLEGRO_SITE/padstacks $compalib
+#set PSMPATH = . symbols .. ../symbols $ALLEGRO_SITE/symbols $compalib
+set pcell_lib_path = $ALLEGRO_SITE/../../rfsip/sip_pcells . sip_pcells .. ../sip_pcells $ALLEGRO_INSTALL_DIR/../rfsip/sip_pcells 
+set TECHPATH = . $ALLEGRO_SITE/tech $GLOBAL/tech
+
+set PARAMPATH = . $ALLEGRO_SITE/parameter 
+set TOPOLOGY_TEMPLATE_PATH = . templates .. ../templates $ALLEGRO_SITE/topology $topfilelib
+#set STEPPATH = . step ../step $ALLEGRO_SITE/step
+set PADPATH = . D:/allegro_env/footprints D:/allegro_env/3rdparty
+set PSMPATH = . D:/allegro_env/footprints D:/allegro_env/3rdparty
+set STEPPATH = . D:/allegro_env/step3d
+
+# DFM Ravel Checker Rules installation directory
+set DFM_RAV_PATH = . $ALLEGRO_INSTALL_DIR/dfm_ravel
+
+# SigNoise data installation directory
+set SIGNOISEPATH = . $LOCALENV $ALLEGRO_SITE/signal $signal_install_dir $signal_optlib_dir $GLOBAL
+
+# SigNoise model variables.
+set SI_MODEL_PATH = . $ALLEGRO_SITE/signal $signal_install_dir
+set SI_MODEL_FILE_EXT = Generic_IBIS(ibs) IBIS_Buffer(buf) IBIS_EBD(ebd) IBIS_ICM(icm) IBIS_Pin_List(pin) IBIS_Package(pkg) Quad(mod) Generic_SPICE(spc) HSpice_Input(sp) HSpice_Output(lis) Spectre(spc) Touchstone(s?p,s??p,ts) DML(ndx,dml) Interconnect(iml) ABIML(abiml)
+
+# ASI (Allegro Sigrity SI) installation directory -- Default location
+set sigrity_eda_dir = $ALLEGRO_INSTALL_ROOT/../SIGRITY2016
+
+#--------------------------------------------------------------------
+# Non-HDL Supported Design Search Path Variables
+set MISCPATH = . $ALLEGRO_SITE/misc $GLOBAL
+set ARTPATH = . .. $ALLEGRO_SITE
+set APTPATH = . .. $ALLEGRO_SITE
+set CLIPPATH = .
+set DCLPATH = . .. $ALIBPATH $COMPLIBPATH
+set DEVPATH = . devices .. ../devices $ALLEGRO_SITE/devices $ALIBPATH/devices $COMPLIBPATH/devices
+set DFAAUDITPATH = . $ALLEGRO_SITE/assembly $ALLEGRO_INSTALL_DIR/assembly
+set DFACNSPATH = . dfa .. ../dfa $ALLEGRO_SITE/dfa
+set NCDPATH = . .. $ALLEGRO_SITE/nclegend $GLOBAL/nclegend
+#set SCRIPTPATH = . $ALLEGRO_SITE/scripts $GLOBAL/script
+set SCRIPTPATH = . D:/allegro_env/scripts
+set TEXTPATH = . $ALLEGRO_SITE/extracta $GLOBAL/views
+set VIEWPATH = . $ALLEGRO_SITE/views
+set XTALK_TABLE_PATH = . xtalk_tables .. ../xtalk_tables $ALLEGRO_SITE/xtalk $ALIBPATH/xtalk_tables
+set WIZARD_TEMPLATE_PATH = $ALLEGRO_SITE/new_templates $ALLEGRO_INSTALL_DIR/pcb_lib/symbols/template 
+set LDFPATH = .
+
+# System Configuration .scf file search path
+set SCFPATH = . scfs .. ../scfs 
+
+# Display the headsup meter in a fixed position in the control panel.
+set allegro_dynam_timing_fixedpos
+
+# For IC Packaging tools (APD and SiP tools), the following defaults the
+# HUD for the wirebond tools to updating 25 times per second. 
+
+set wirebond_hud_update_frequency 25
+# By default, suppress bond wire DRCs that are 3D in nature but being
+# checked in 2D. By default, the APD/SiP tools will only report wire
+# violations if they occur over top of the end item (finger or pin) and
+# the two wires are on different nets.
+set wirebond_suppress_bondwire_drcs
+
+# enable license caching for better toolswap performance
+set allegro_license_caching
+
+#--------------------------------------------------------------------
+#--------------------------------------------------------------------
+# alias
+# May use function keys F2-F12, most Alpha-numberic keys with control 
+# modifier (although Control - C, V and X are reserved for copy, paste and cut)
+# and Navigation Keys (Home, Up arrow, Esc, etc.) These items may be modifed
+# by the following:
+#     Modifier 		Indicator		Example
+#       Shift		   S			 SF2	
+#	Control  	   C (function keys)	 CF2
+#	Control 	   ~ (alpha-numeric)	 ~N
+#	Meta		   A			 AF2
+# Modifiers may be combined. Some examples: 
+#	CSF2		  Control-Shift F2
+#	ASF2		  Meta-Shift F2
+#	CAF2		  Control-Meta F2
+#       CASF2		  Control-Meta-Shift F2
+#	~SZ		  Control-Shift Z
+#	SUp		  Shift-Up Arrow
+#	CUp		  Control-Up Arrow
+#
+# funckey
+#  use the funckey when you wish to have alphanumeric keys operate
+#  like the Function keys when the cursor is in the Allegro canvas.
+# 
+#  Example -- following starts the move command without a Enter key
+#     funckey m move
+
+#--------------------------------------------------------------------
+# Bind roam operations to function keys
+set roamInc = 96
+#funckey Up        "roam y -$roamInc"
+#funckey Down      "roam y $roamInc"
+#funckey Left      "roam x -$roamInc"
+#funckey Right     "roam x $roamInc"
+
+# Bind incremental pick by grid unit functions to ctrl and shift--arrow keys 
+alias CUp        "ipick 0; ipick_to_gridunit 0 +1"
+alias CDown      "ipick 0; ipick_to_gridunit 0 -1"
+alias CLeft      "ipick 0; ipick_to_gridunit -1"
+alias CRight     "ipick 0; ipick_to_gridunit +1"
+alias SUp        "move; ipick_to_gridunit 0 +1"
+alias SDown      "move; ipick_to_gridunit 0 -1"
+alias SLeft      "move; ipick_to_gridunit -1"
+alias SRight     "move; ipick_to_gridunit +1"
+
+# example of a funckey to emulate Layout capability
+# The "-cursor" option can be added to any Allegro command with the pick familty
+# and we utilize the position under the cursor when the command is execute. So
+# this example would center the display to position under the cursor when the 'c' key
+# is pressed.
+# funckey c	"zoom center; pick -cursor"
+
+#--------------------------------------------------------------------
+# F1 is normally reserved by the system for Help so we don't use it
+
+alias Home zoom fit
+alias Pgup zoom in
+alias Pgdown zoom out
+alias End done
+alias Del delete
+alias Esc cancel
+
+#Key Function
+alias F2 'settoggle  no_etch_shape_display;redraw'
+#alias F3 oops
+alias F4 show element
+alias F5 redraw
+#alias F6 redraw
+#alias F7 redraw
+#alias F8 redraw
+#alias F9 redraw
+#alias F10 grid toggle
+alias F11 zoom in
+alias F12 zoom out
+
+#Shift Function
+alias SF2 property edit
+#alias SF3 slide
+alias SF4 show measure
+#alias SF5 slide
+#alias SF6 slide
+alias SF7 dehilight all
+alias SF8 hilight pick
+#alias SF9 slide
+alias SF10 save_as temp
+alias SF11 zoom previous
+alias SF12 zoom world
+
+#Control Function
+#alias CF2 color192
+#alias CF3 color192
+#alias CF4 color192
+alias CF5 color192
+alias CF6 layer priority
+#alias CF7 color192
+#alias CF8 color192
+#alias CF9 color192
+#alias CF10 color192
+#alias CF11 color192
+#alias CF12 color192
+
+#Control-Shift Function
+alias CSF5 status
+
+
+alias ~N new
+alias ~O open
+alias ~S save
+alias ~Z undo
+funckey ~Y redo
+
+funckey + subclass -+
+funckey - subclass --
+funckey Up iangle -45
+funckey Down iangle 180
+funckey Right iangle -90
+funckey Left iangle 90
+
+funckey a add connect
+funckey cp copy
+funckey ch change
+funckey co chg origin
+funckey de dimension edit
+funckey dd replay dim_delete.scr #Delete dimensions
+funckey dl replay dim_linear.scr
+funckey dp replay dim_parameter.scr
+funckey dv delete vertex
+funckey i mirror
+funckey m move
+funckey n next
+funckey oo oops
+funckey pe property edit
+funckey pm place manual
+funckey pq quickplace
+#funckey r iangle 90
+
+funckey sa shape add 
+funckey sr shape add rect 
+funckey sc shape add circle 
+funckey ss shape select 
+funckey sve shape void element 
+funckey svp shape void polygon 
+funckey svr shape void rectangle 
+funckey svc shape void circle 
+funckey se shape edit boundary 
+funckey si island_delete 
+
+funckey st shape change type 
+funckey sm shape merge shapes 
+funckey sk shape check 
+funckey so compose shape 
+funckey sd decompose shape 
+funckey sg shape global param
+
+funckey sl slide
+funckey sn rats all
+funckey su unrats all
+funckey sp spin
+funckey te text edit
+#funckey v pop bbdrill
+funckey vt vertex
+funckey z grid toggle
+funckey zs zcopy shape
+
+funckey fg 'setwindow form.find;FORM find all_off;FORM find groups YES;setwindow pcb'
+funckey fs 'setwindow form.find;FORM find all_off;FORM find symbols YES;setwindow pcb'
+funckey fn 'setwindow form.find;FORM find all_off;FORM find nets YES;setwindow pcb' 
+funckey fp 'setwindow form.find;FORM find all_off;FORM find pins YES;setwindow pcb'
+funckey fv 'setwindow form.find;FORM find all_off;FORM find vias YES;setwindow pcb'
+funckey fc 'setwindow form.find;FORM find all_off;FORM find clines YES;setwindow pcb' 
+funckey fl 'setwindow form.find;FORM find all_off;FORM find lines YES;setwindow pcb' 
+funckey fh 'setwindow form.find;FORM find all_off;FORM find shapes YES;setwindow pcb' 
+funckey fi 'setwindow form.find;FORM find all_off;FORM find voids YES;setwindow pcb'
+funckey fe 'setwindow form.find;FORM find all_off;FORM find cline_segs YES;setwindow pcb'
+funckey fo 'setwindow form.find;FORM find all_off;FORM find other_segs YES;setwindow pcb' 
+funckey fu 'setwindow form.find;FORM find all_off;FORM find figures YES;setwindow pcb'
+funckey fd 'setwindow form.find;FORM find all_off;FORM find drc_errors YES;setwindow pcb'
+funckey ft 'setwindow form.find;FORM find all_off;FORM find text YES;setwindow pcb'
+funckey fr 'setwindow form.find;FORM find all_off;FORM find ratsnests YES;setwindow pcb'
+funckey fx 'setwindow form.find;FORM find all_off;FORM find ratsnest_ts YES;setwindow pcb'
+funckey ff 'setwindow form.find;FORM find all_off;setwindow pcb'
+funckey fa 'setwindow form.find;FORM find all_on;setwindow pcb'
+
+funckey 11 "setwindow form.mini; FORM mini alt_subclass TOP"
+funckey 22 "setwindow form.mini; FORM mini alt_subclass INTERNAL1" 
+funckey 33 "setwindow form.mini; FORM mini alt_subclass INTERNAL2" 
+funckey 44 "setwindow form.mini; FORM mini alt_subclass INTERNAL3"
+funckey 55 "setwindow form.mini; FORM mini alt_subclass INTERNAL4"
+funckey 66 "setwindow form.mini; FORM mini alt_subclass BOTTOM"
+
+funckey b 'settoggle shove_mode "Hug only" "Shove preferred"; options bubble_space $shove_mode'
+funckey 1 'pop bbdrill;pop swap;subclass top'
+funckey 2 'pop bbdrill;pop swap;subclass top;+'
+funckey 3 'pop bbdrill;pop swap;subclass top;+;+'
+funckey 4 'pop bbdrill;pop swap;subclass top;+;+;+'
+funckey 5 'pop bbdrill;pop swap;subclass top;+;+;+;+'
+funckey 6 'pop bbdrill;pop swap;subclass top;+;+;+;+;+'
+funckey 7 'pop bbdrill;pop swap;subclass top;+;+;+;+;+;+'
+funckey 8 'pop bbdrill;pop swap;subclass top;+;+;+;+;+;+;+'
+funckey 9 'pop bbdrill;pop swap;subclass top;+;+;+;+;+;+;+;+'
+funckey 0 'pop bbdrill;pop swap;subclass bottom'
+
+alias ~P 'shell explorer .'
+alias fpt shell explorer E:\allegro_env\footprints
+alias brd shell explorer E:\allegro_env\board
+alias scr shell explorer E:\allegro_env\scripts
+alias ski shell explorer E:\allegro_env\skill
+alias stp shell explorer E:\allegro_env\step3d
+alias frm shell explorer E:\allegro_env\skill\form
+
+#alias env shell notepad D:/allegro_env/env 
+alias env shell subl.exe D:/allegro_env/env 
+alias envs 'source -q $localenv/env'
+alias exp    plctxt out  
+
+alias w4 FORM mini acon_line_width 4
+alias w5 FORM mini acon_line_width 5
+alias w6 FORM mini acon_line_width 6
+alias w7 FORM mini acon_line_width 7
+alias w8 FORM mini acon_line_width 8
+alias w9 FORM mini acon_line_width 9
+alias w10 FORM mini acon_line_width 10
+alias w11 FORM mini acon_line_width 11
+alias w12 FORM mini acon_line_width 12
+alias w13 FORM mini acon_line_width 13
+alias w14 FORM mini acon_line_width 14
+alias w15 FORM mini acon_line_width 15
+alias w16 FORM mini acon_line_width 16
+alias w17 FORM mini acon_line_width 17
+alias w18 FORM mini acon_line_width 18
+alias w19 FORM mini acon_line_width 19
+alias w20 FORM mini acon_line_width 20
+alias w25 FORM mini acon_line_width 25
+alias w30 FORM mini acon_line_width 30
+alias w35 FORM mini acon_line_width 35
+alias w40 FORM mini acon_line_width 40
+alias w45 FORM mini acon_line_width 45
+alias w50 FORM mini acon_line_width 50
+alias w55 FORM mini acon_line_width 55
+alias w60 FORM mini acon_line_width 60
+alias w65 FORM mini acon_line_width 65
+alias w70 FORM mini acon_line_width 70
+alias w75 FORM mini acon_line_width 75
+alias w80 FORM mini acon_line_width 80
+alias w85 FORM mini acon_line_width 85
+alias w90 FORM mini acon_line_width 90
+alias w95 FORM mini acon_line_width 95
+alias w100 FORM mini acon_line_width 100
+
+#scripts
+
+alias dfa replay dfa_class
+
+alias 5g10 replay 5grid10
+alias 5g25 replay 5grid25
+
+alias g0m5 replay gird0m5
+alias g0m25 replay gird0m25
+alias g0m99 replay gird0m99
+alias g1m98 replay gird1m98
+alias g3m5 replay gird3m5
+
+alias g1 replay gird1
+alias g2 replay gird2
+alias g3 replay gird3
+alias g4 replay gird4
+alias g5 replay gird5
+alias g6 replay gird6
+alias g7 replay gird7
+alias g8 replay gird8
+alias g9 replay gird9
+
+alias g10 replay gird10
+alias g20 replay gird20
+alias g30 replay gird30
+alias g40 replay gird40
+alias g50 replay gird50
+alias g60 replay gird60
+alias g70 replay gird70
+alias g80 replay gird80
+alias g90 replay gird90
+
+alias g15 replay gird15
+alias g25 replay gird25
+alias g35 replay gird35
+alias g45 replay gird45
+alias g55 replay gird55
+alias g65 replay gird65
+alias g75 replay gird75
+alias g85 replay gird85
+alias g95 replay gird95
+
+alias g100 replay gird100
+alias g200 replay gird200
+
+#--------------------------------------------------------------------
+# OTHER ALIASES	
+alias edps padedit
+alias rps "replace padstack"
+alias unplrp report unplaced
+alias x pick
+alias y pick l
+alias ix ipick
+alias iy ipick 0
+alias reopen 'open -q $module'
+alias revert 'open -q $module'
+alias zc zoom center
+
+# autoroam
+alias sar set pcb_autoroam
+alias uar unset pcb_autoroam
+
+alias bubset 'settoggle shove_mode Off "Hug preferred" "Shove preferred"; options bubble_space $shove_mode'
+alias ~B bubset
+alias smoothset 'settoggle smooth_mode Off Minimal Full; options smooth_level $smooth_mode'
+alias ~C smoothset
+
+
+#--------------------------------------------------------------------
+# COMMAND DEFAULTS
+# allow slide to work on arcs by default
+set slide_arcs
+
+# Compatibility aliases
+alias window	zoom
+alias hilite	hilight
+alias dehilite	dehilight
+alias pickx	pick
+alias picky	pick l
+alias ipickx	ipick
+alias ipicky	ipick 0
+alias cdnshelp	cdsdoc
+
+#--------------------------------------------------------------------
+# MOUSE WHEEL SUPPORT 
+#   Environment Variables - Note quote variables so they are evaluated
+#        at button time not when this file is read.
+#   - _wheelcnt variable is set based upon number of detents wheel moved
+#	range is -4 to 4 (no 0)
+#   - sx1 and sy1 are cursor coordinates when wheel is moved
+#
+# Button values
+#   wheel_up:   when wheel is moved up
+#   wheel_down: when wheel is moved down
+#   wheel:	up/down if either of above 2 buttons are not assigned
+#  
+# Keyboard modifiers (note we are case insensitive)
+#   S - shift key
+#   C - control key
+#   SC - shift and control
+#     Example: SCwheel - for wheel button assignment with both shift & control keys
+#
+
+# Button factor may be factorion (e.g. 0.5)
+set buttonfactor = 1
+
+button wheel_up "zoom in $buttonfactor"
+button wheel_down "zoom out $buttonfactor"
+button Cwheel_up "zoom in $buttonfactor"
+button Cwheel_down "zoom out $buttonfactor"
+
+#---------------------------------
+# COMMAND USER
+
+#luoi
+
+
+source -q $ALLEGRO_SITE/site.env
+### User Preferences section
+### This section is computer generated.
+### Please do not modify to the end of the file.
+### Place your hand edits above this section.
+###
+set ads_sdart = gerber
+set display_nodfa_drc_marks
+set dfa_pause_level = 3
+set autosave_time = 5
+set autosave
+set autosave_name = auto
+unset display_shapefill
+unset no_etch_shape_display
+unset old_shape_fill_style
+unset no_shape_fill
