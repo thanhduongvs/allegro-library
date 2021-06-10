@@ -1,0 +1,46 @@
+# Allegro script
+#	file: E:/allegro_env/footprints/axxx.scr
+#	start time: Thu Jun 21 10:50:36 2018
+#	Version: 16.6-2015 S092 (v16-6-112GZ) Windows 32
+version 16.6
+
+setwindow pcb
+trapsize 20
+dimension edit 
+prepopup -133.6 40.9
+pop dyn_option_select @:@Parameters 
+setwindow form.draft_parms
+FORM draft_parms ansi_standard YES 
+FORM draft_parms text  
+FORM draft_parms text_block_text 1 
+FORM draft_parms leading_zero NO 
+FORM draft_parms trailing_zeros NO 
+FORM draft_parms align_text NO 
+FORM draft_parms diameter_symbol NO 
+FORM draft_parms diameter_leading YES 
+FORM draft_parms radius_leading YES 
+FORM draft_parms special_none YES 
+FORM draft_parms units Mils 
+FORM draft_parms dual_dimensions YES 
+FORM draft_parms second_units Millimeters 
+FORM draft_parms second_accuracy 3 
+FORM draft_parms second_below YES 
+FORM draft_parms lines  
+FORM draft_parms leader Arrow 
+FORM draft_parms linear_top Arrow 
+FORM draft_parms linear_bottom Arrow 
+FORM draft_parms fill YES 
+FORM draft_parms arrow_type 3 Point 
+FORM draft_parms arrow_length '0.020 IN' 
+FORM draft_parms arrow_width '0.010 IN' 
+FORM draft_parms bullet_diameter '0.050 IN' 
+FORM draft_parms slash_length '0.050 IN' 
+FORM draft_parms odd_angle Horiz/Vert 
+FORM draft_parms suppress None 
+FORM draft_parms offset '0.010 IN' 
+FORM draft_parms extension '0.010 IN' 
+FORM draft_parms apply   
+FORM draft_parms done  
+setwindow pcb
+
+#	stop time: Thu Jun 21 10:52:09 2018

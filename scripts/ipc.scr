@@ -1,0 +1,15 @@
+setwindow pcb
+# Allegro script
+#	file: ipc.scr
+#	start time: Tue 12:31:27 
+#	Version: 15.1 
+version 15.1
+
+trapsize 5652
+ipc356 out 
+setwindow form.ipc356
+FORM ipc356 run  
+FORM ipc356 close  
+setwindow pcb
+
+#	stop time: Tue 12:31:41

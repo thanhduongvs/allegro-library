@@ -1,0 +1,18 @@
+# Allegro script
+#	file: E:/allegro_env/footprints/zzzz.scr
+#	start time: Thu Jun 21 10:00:30 2018
+#	Version: 16.6-2015 S092 (v16-6-112GZ) Windows 32
+version 16.6
+
+setwindow pcb
+trapsize 39
+generaledit
+dimension edit 
+prepopup -276.5 34.4
+pop dyn_option_select '@:@Linear dimension' 
+setwindow form.mini
+FORM mini class PACKAGE GEOMETRY 
+FORM mini subclass FOOTPRINT 
+setwindow pcb
+
+#	stop time: Thu Jun 21 10:00:45 2018

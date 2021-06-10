@@ -1,0 +1,15 @@
+# Allegro script
+#	file: E:/allegro_env/footprints/adfa.scr
+#	start time: Wed Jun 20 23:14:14 2018
+#	Version: 16.6-2015 S092 (v16-6-112GZ) Windows 32
+version 16.6
+
+setwindow pcb
+trapsize 39
+show property 
+setwindow form.show_prop
+FORM show_prop proplist Dfa_Dev_Class 
+FORM show_prop show  
+setwindow pcb
+
+#	stop time: Wed Jun 20 23:14:46 2018

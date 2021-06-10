@@ -1,0 +1,22 @@
+# Allegro script
+#	file: C:/Users/thanhduong/Downloads/Compressed/BONE_PCB/gird1.scr
+#	start time: Tue Jun 20 11:50:28 2017
+#	Version: 16.6 P004 (v16-6-112G) Windows 32
+version 16.6
+
+setwindow pcb
+trapsize 1042
+generaledit
+define grid 
+generaledit 
+setwindow form.grid
+FORM grid non_etch non_etch_x_grids 1 
+FORM grid non_etch non_etch_y_grids 1 
+FORM grid all_etch all_etch_x_grids 1 
+FORM grid all_etch all_etch_y_grids 1 
+FORM grid all_etch all_etch_x_offset 0.00 
+FORM grid all_etch all_etch_y_offset 0.00 
+FORM grid done  
+setwindow pcb
+
+#	stop time: Tue Jun 20 11:50:58 2017
