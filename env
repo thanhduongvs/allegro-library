@@ -43,8 +43,8 @@ ifnvar ALLEGRO_INSTALL_DLL "set ALLEGRO_INSTALL_DLL "
 #--------------------------------------------------------------------
 # Configuration variables (Don't change)
 set BMPPATH = . $ALLEGRO_SITE/icons $GLOBAL/icons $ALLEGRO_INSTALL_ROOT/share/fsp/legends $ALLEGRO_INSTALL_ROOT/tools/fsp/legends
-set FORMPATH = . $ALLEGRO_SITE/forms $GLOBAL/forms D:/allegro_env/skill/form D:/allegro_env/skill
-set MENUPATH = . $ALLEGRO_SITE/menus $GLOBAL/cuimenus D:/allegro_env/menus
+set FORMPATH = . $ALLEGRO_SITE/forms $GLOBAL/forms D:/git/allegro-library/skill/form D:/git/allegro-library/skill
+set MENUPATH = . $ALLEGRO_SITE/menus $GLOBAL/cuimenus D:/git/allegro-library/menus
 
 set MATERIALPATH = . $LOCALENV $ALLEGRO_SITE $GLOBAL $GLOBAL/materials
 set CAPATH = . $LOCALENV $ALLEGRO_SITE $ALLEGRO_INSTALL_DIR/channelanalysis
@@ -110,9 +110,9 @@ set TECHPATH = . $ALLEGRO_SITE/tech $GLOBAL/tech
 set PARAMPATH = . $ALLEGRO_SITE/parameter 
 set TOPOLOGY_TEMPLATE_PATH = . templates .. ../templates $ALLEGRO_SITE/topology $topfilelib
 #set STEPPATH = . step ../step $ALLEGRO_SITE/step
-set PADPATH = . D:/allegro_env/footprints D:/allegro_env/3rdparty
-set PSMPATH = . D:/allegro_env/footprints D:/allegro_env/3rdparty
-set STEPPATH = . D:/allegro_env/step3d
+set PADPATH = . D:/git/allegro-library/footprints D:/git/allegro-library/3rdparty
+set PSMPATH = . D:/git/allegro-library/footprints D:/git/allegro-library/3rdparty
+set STEPPATH = . D:/git/allegro-library/step3d
 
 # DFM Ravel Checker Rules installation directory
 set DFM_RAV_PATH = . $ALLEGRO_INSTALL_DIR/dfm_ravel
@@ -139,7 +139,7 @@ set DFAAUDITPATH = . $ALLEGRO_SITE/assembly $ALLEGRO_INSTALL_DIR/assembly
 set DFACNSPATH = . dfa .. ../dfa $ALLEGRO_SITE/dfa
 set NCDPATH = . .. $ALLEGRO_SITE/nclegend $GLOBAL/nclegend
 #set SCRIPTPATH = . $ALLEGRO_SITE/scripts $GLOBAL/script
-set SCRIPTPATH = . D:/allegro_env/scripts
+set SCRIPTPATH = . D:/git/allegro-library/scripts
 set TEXTPATH = . $ALLEGRO_SITE/extracta $GLOBAL/views
 set VIEWPATH = . $ALLEGRO_SITE/views
 set XTALK_TABLE_PATH = . xtalk_tables .. ../xtalk_tables $ALLEGRO_SITE/xtalk $ALIBPATH/xtalk_tables
@@ -376,8 +376,8 @@ alias ski shell explorer E:\allegro_env\skill
 alias stp shell explorer E:\allegro_env\step3d
 alias frm shell explorer E:\allegro_env\skill\form
 
-#alias env shell notepad D:/allegro_env/env 
-alias env shell subl.exe D:/allegro_env/env 
+#alias env shell notepad D:/git/allegro-library/env 
+alias env shell subl.exe D:/git/allegro-library/env 
 alias envs 'source -q $localenv/env'
 alias exp    plctxt out  
 

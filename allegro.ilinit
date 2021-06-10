@@ -1,0 +1,41 @@
+unless(boundp('LoadSkillFilesDebug) 
+	LoadSkillFilesDebug = axlGetVariable("LoadSkillFilesDebug"))
+
+
+when(LoadSkillFilesDebug printf("\n"))
+(foreach file (rexMatchList "\\.il$" (getDirFiles "."))
+	when(LoadSkillFilesDebug printf("Loading Skill file: %s\n" file))
+	(load strcat("./" file))
+)
+
+; Load any ini files (containing axlCmdRegister)
+(foreach file (rexMatchList "\\.ini$" (getDirFiles "."))
+	when(LoadSkillFilesDebug printf("Loading Skill file: %s\n" file))
+	(load strcat("./" file))
+)
+when(LoadSkillFilesDebug printf("\n"))
+
+;C:\Cadence\SPB_16.6\share\pcb\examples\skill
+setSkillPath(buildString(append1(getSkillPath() "D:/git/allegro-library/skill" )))
+	foreach(dir getSkillPath()
+		when(isDir(dir)
+			foreach(file rexMatchList("\\.eil$" getDirFiles(dir))
+			when(
+				printf("Loading Skill file: %s\n" file)
+				load(file)
+			)
+		)
+	)
+)
+
+setSkillPath(buildString(append1(getSkillPath() "D:/git/allegro-library/skill" )))
+	foreach(dir getSkillPath()
+		when(isDir(dir)
+			foreach(file rexMatchList("\\.il$" getDirFiles(dir))
+			when(
+				printf("Loading Skill file: %s\n" file)
+				load(file)
+			)
+		)
+	)
+)
